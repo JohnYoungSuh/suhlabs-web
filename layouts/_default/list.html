@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div style="margin-bottom: 2rem;">
+    <h1>{{ .Title }}</h1>
+</div>
+
+{{ if eq .RelPermalink "/work/" }}
+<!-- Work Gallery -->
+<div class="gallery-grid">
+    {{ range .Site.Data.work }}
+    <div class="gallery-item">
+        <img src="/img/{{ .filename }}" alt="{{ .title }}" loading="lazy">
+        <div class="image-overlay">
+            <h3>{{ .title }}</h3>
+            <p>{{ .category }}</p>
+        </div>
+    </div>
+    {{ end }}
+</div>
+
+{{ else if eq .RelPermalink "/store/" }}
+<!-- Store Grid -->
+<div class="store-grid">
+    {{ range .Site.Data.products }}
+    <div class="product-card">
+        <div class="product-image">
+            <img src="/img/{{ .image }}" alt="{{ .title }}">
+        </div>
+        <h3>{{ .title }}</h3>
+        <p class="format">{{ .format }}</p>
+        <div class="price-action">
+            <span class="price">${{ .price }}</span>
+            <a href="{{ .payhip_url }}" class="btn-buy" target="_blank">Buy</a>
+        </div>
+    </div>
+    {{ end }}
+</div>
+
+{{ else }}
+<!-- Default Content -->
+{{ .Content }}
+{{ end }}
+
+{{ end }}

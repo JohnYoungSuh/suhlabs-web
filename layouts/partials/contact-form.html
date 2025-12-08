@@ -1,0 +1,19 @@
+<form name="contact" method="POST" data-netlify="true" action="/success" style="margin-top: 2rem;">
+    <div style="margin-bottom: 1rem;">
+        <label for="name" style="display: block; margin-bottom: 0.5rem;">Name</label>
+        <input type="text" name="name" id="name" required style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color);">
+    </div>
+    <div style="margin-bottom: 1rem;">
+        <label for="email" style="display: block; margin-bottom: 0.5rem;">Email</label>
+        <input type="email" name="email" id="email" required style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color);">
+    </div>
+    <div style="margin-bottom: 1rem;">
+        <label for="phone" style="display: block; margin-bottom: 0.5rem;">Phone (Optional)</label>
+        <input type="tel" name="phone" id="phone" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color);">
+    </div>
+    <div style="margin-bottom: 1rem;">
+        <label for="message" style="display: block; margin-bottom: 0.5rem;">Message</label>
+        <textarea name="message" id="message" rows="5" required style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); font-family: inherit;"></textarea>
+    </div>
+    <button type="submit" style="background: var(--text-color); color: var(--bg-color); padding: 0.75rem 1.5rem; border: none; cursor: pointer; text-transform: uppercase;">Send Message</button>
+</form>

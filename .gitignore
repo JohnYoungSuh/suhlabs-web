@@ -1,0 +1,11 @@
+# Hugo default output
+/public
+/resources
+/_gen
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Netlify
+.netlify

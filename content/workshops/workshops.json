@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Street Photography Masterclass",
+    "date": "2025-05-10",
+    "description": "Learn the art of capturing the decisive moment in urban environments.",
+    "price": "299.00",
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "title": "Black & White Processing",
+    "date": "2025-06-15",
+    "description": "Deep dive into monochrome editing techniques.",
+    "price": "149.00",
+    "link": "#"
+  }
+]

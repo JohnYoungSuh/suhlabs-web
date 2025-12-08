@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div style="max-width: 800px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem;">
+        <h1>{{ .Title }}</h1>
+    </div>
+    
+    <div class="content">
+        {{ .Content }}
+    </div>
+
+    <!-- Inject Contact Form if enabled in frontmatter -->
+    {{ if .Params.contact }}
+        {{ partial "contact-form.html" . }}
+    {{ end }}
+</div>
+{{ end }}

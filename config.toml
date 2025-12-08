@@ -1,0 +1,8 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Suhlabs Photos"
+theme = []
+
+[params]
+  description = "Minimalist Photography by Suhlabs"
+  author = "Suhlabs"
