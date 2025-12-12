@@ -19,31 +19,56 @@ Designed for "Visual Silence" - strictly Black & White, high contrast, and perfo
 
 ## Local Development
 
-1.  Install Hugo:
+### Option 1: Docker (Recommended)
 
-    ```bash
-    # MacOS
-    brew install hugo
+The project uses the official Hugo Docker image for consistent development environments:
 
-    # Windows (Chocolatey)
-    choco install hugo-extended
-    ```
+```bash
+# Start development server
+make dev
+# OR
+docker compose up
 
-2.  Run the server:
+# Stop server
+make stop
+# OR
+docker compose down
+```
 
-    ```bash
-    hugo server -D
-    ```
+Visit `http://localhost:1313` to see your site with live reload enabled.
 
-3.  Visit `http://localhost:1313`.
+**Note**: The custom `Dockerfile` in this repo is archived. We use the official `klakegg/hugo:ext-alpine` image via `docker-compose.yml` to avoid architecture compatibility issues.
+
+### Option 2: Local Hugo Installation
+
+If you prefer to install Hugo directly:
+
+```bash
+# MacOS
+brew install hugo
+
+# Windows (Chocolatey)
+choco install hugo-extended
+
+# Linux
+sudo apt install hugo
+```
+
+Run the server:
+
+```bash
+hugo server -D
+```
 
 ## Deployment
 
-This repository is configured for **Netlify**.
+This repository is configured for **Netlify** with automatic deployments.
 
 1.  Push to GitHub.
 2.  Connect repository in Netlify Dashboard.
-3.  Netlify will detect `netlify.toml` and build the site.
+3.  Netlify will detect `netlify.toml` and build the site automatically.
+
+**Local Testing**: Use `make dev` to test the Docker environment locally before deploying.
 
 ## Features implemented
 

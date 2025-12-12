@@ -1,11 +1,47 @@
-version: '3.8'
+# Use official Hugo Docker image to avoid architecture issues
+# This is the recommended approach for Hugo development
 
 services:
   web:
-    build: .
+    container_name: suhlabs-web-dev
+    # Official Hugo image with extended version for SCSS support
+    image: klakegg/hugo:ext-alpine
+
+    # Hugo server command with development flags
+    command: server --bind=0.0.0.0 --buildDrafts --navigateToChanged --poll 700ms
+
     volumes:
+      # Mount source code for live reload
       - .:/src
+
     ports:
       - "1313:1313"
+
     environment:
       - HUGO_ENV=development
+      - TZ=America/Los_Angeles
+
+    restart: unless-stopped
+
+    # Resource limits (prevent container from consuming all resources)
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+        reservations:
+          memory: 128M
+
+    # Labels for metadata and organization
+    labels:
+      com.suhlabs.project: "suhlabs-web"
+      com.suhlabs.environment: "development"
+
+    # Custom network for isolation
+    networks:
+      - suhlabs-network
+
+# Define custom network
+networks:
+  suhlabs-network:
+    driver: bridge

@@ -3,8 +3,8 @@
 # Default target
 help:
 	@echo "Available commands:"
-	@echo "  make dev          - Start development server with Docker"
-	@echo "  make build        - Build Hugo site"
+	@echo "  make dev          - Start development server with Docker (official Hugo image)"
+	@echo "  make build        - Build Hugo site locally (requires Hugo installed)"
 	@echo "  make test         - Build and validate site"
 	@echo "  make clean        - Clean Hugo build artifacts"
 	@echo "  make clean-docker - Clean Docker containers and images"
@@ -13,8 +13,8 @@ help:
 
 # Development
 dev:
-	@echo "Starting Hugo development server..."
-	docker compose up --build
+	@echo "Starting Hugo development server (using official image)..."
+	docker compose up
 
 # Production build
 build:
