@@ -3,16 +3,18 @@
     <h1>{{ .Title }}</h1>
 </div>
 
-{{ if eq .RelPermalink "/work/" }}
-<!-- Work Gallery -->
+{{ if eq .Section "work" }}
+<!-- Work Gallery (Hugo Content) -->
 <div class="gallery-grid">
-    {{ range .Site.Data.work }}
+    {{ range .Pages }}
     <div class="gallery-item">
-        <img src="/img/{{ .filename }}" alt="{{ .title }}" loading="lazy">
-        <div class="image-overlay">
-            <h3>{{ .title }}</h3>
-            <p>{{ .category }}</p>
-        </div>
+        <a href="{{ .RelPermalink }}">
+            <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}" loading="lazy">
+            <div class="image-overlay">
+                <h3>{{ .Title }}</h3>
+                <p>{{ index .Params.categories 0 }}</p>
+            </div>
+        </a>
     </div>
     {{ end }}
 </div>
