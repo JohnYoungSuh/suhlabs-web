@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{ .Description }}" />
+    <meta name="keywords" content="{{ .Params.keywords }}" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:description" content="{{ .Description }}" />
+    <meta property="og:type" content="website" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/viewing-room.css" />
+  </head>
+  <body class="viewing-room">
+    <!-- Minimal Navigation -->
+    <nav
+      style="
+        padding: 1rem 2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background: rgba(10, 10, 10, 0.9);
+        width: 100%;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      "
+    >
+      <a
+        href="/"
+        style="
+          color: rgba(245, 245, 245, 0.7);
+          text-decoration: none;
+          font-size: 0.875rem;
+        "
+        >← Back to Quiz</a
+      >
+    </nav>
+
+    <main style="padding-top: 80px">
+      <!-- Video Welcome (Placeholder for now) -->
+      <div class="video-welcome" id="video-welcome" style="display: none">
+        <video autoplay muted playsinline id="welcome-video">
+          <source
+            src="/video/{{ .Params.collection }}-welcome.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <button
+          class="skip-video"
+          onclick="document.getElementById('video-welcome').style.display='none'"
+        >
+          Continue to Collection →
+        </button>
+      </div>
+
+      <!-- Collection Content -->
+      <div class="collection-content">{{ .Content }}</div>
+    </main>
+
+    <footer
+      style="
+        padding: 4rem 2rem;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      "
+    >
+      <p style="color: rgba(245, 245, 245, 0.5); font-size: 0.875rem">
+        © {{ now.Format "2006" }} The Relentless Cinder. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>

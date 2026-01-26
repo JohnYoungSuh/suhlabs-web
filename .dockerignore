@@ -1,0 +1,35 @@
+# Ignore version control
+.git/
+.gitignore
+
+# Ignore build artifacts
+public/
+resources/
+.hugo_build.lock
+
+# Ignore node modules (if using npm for any tooling)
+node_modules/
+package-lock.json
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore local environment files
+.env
+.env.local
+
+# Ignore documentation (not needed in container)
+*.md
+!content/**/*.md
+
+# Ignore Docker files themselves
+Dockerfile
+docker-compose.yml
+.dockerignore

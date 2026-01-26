@@ -1,43 +1,64 @@
 {{ define "main" }}
-<div style="margin-bottom: 2rem;">
-    <h1>{{ .Title }}</h1>
+<div style="margin-bottom: 2rem">
+  <h1>{{ .Title }}</h1>
 </div>
 
-{{ if eq .RelPermalink "/work/" }}
-<!-- Work Gallery -->
+{{ if eq .Section "work" }}
+<!-- Work Gallery (Hugo Content) -->
 <div class="gallery-grid">
-    {{ range .Site.Data.work }}
-    <div class="gallery-item">
-        <img src="/img/{{ .filename }}" alt="{{ .title }}" loading="lazy">
-        <div class="image-overlay">
-            <h3>{{ .title }}</h3>
-            <p>{{ .category }}</p>
-        </div>
-    </div>
+  {{ range .Pages }}
+  <div class="gallery-item">
+    <a href="{{ .RelPermalink }}">
+      <img
+        src="{{ .Params.image | absURL }}"
+        alt="{{ .Title }}"
+        loading="lazy"
+      />
+      <div class="image-overlay">
+        <h3>{{ .Title }}</h3>
+        <p>{{ index .Params.categories 0 }}</p>
+      </div>
+    </a>
+  </div>
+  {{ end }}
+</div>
+
+{{ else if eq .Section "projects" }}
+<!-- Projects List -->
+<div class="projects-list">
+  <ul>
+    {{ range .Site.Data.projects }}
+    <li style="margin-bottom: 1rem">
+      <a
+        href="{{ .url }}"
+        target="_blank"
+        style="font-weight: bold; text-decoration: underline"
+        >{{ .name }}</a
+      >
+      <p>{{ .description }}</p>
+    </li>
     {{ end }}
+  </ul>
 </div>
 
 {{ else if eq .RelPermalink "/store/" }}
 <!-- Store Grid -->
 <div class="store-grid">
-    {{ range .Site.Data.products }}
-    <div class="product-card">
-        <div class="product-image">
-            <img src="/img/{{ .image }}" alt="{{ .title }}">
-        </div>
-        <h3>{{ .title }}</h3>
-        <p class="format">{{ .format }}</p>
-        <div class="price-action">
-            <span class="price">${{ .price }}</span>
-            <a href="{{ .payhip_url }}" class="btn-buy" target="_blank">Buy</a>
-        </div>
+  {{ range .Site.Data.products }}
+  <div class="product-card">
+    <div class="product-image">
+      <img src="/img/{{ .image }}" alt="{{ .title }}" />
     </div>
-    {{ end }}
+    <h3>{{ .title }}</h3>
+    <p class="format">{{ .format }}</p>
+    <div class="price-action">
+      <span class="price">${{ .price }}</span>
+      <a href="{{ .payhip_url }}" class="btn-buy" target="_blank">Buy</a>
+    </div>
+  </div>
+  {{ end }}
 </div>
 
 {{ else }}
 <!-- Default Content -->
-{{ .Content }}
-{{ end }}
-
-{{ end }}
+{{ .Content }} {{ end }} {{ end }}

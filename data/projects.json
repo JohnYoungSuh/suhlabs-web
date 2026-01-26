@@ -1,0 +1,17 @@
+[
+  {
+    "name": "AI Agent Governance Framework",
+    "description": "A framework for governing AI agents.",
+    "url": "https://github.com/JohnYoungSuh/ai-agent-governance-framework"
+  },
+  {
+    "name": "AIOps Substrate",
+    "description": "Operational substrate for AI systems.",
+    "url": "https://github.com/JohnYoungSuh/suhlabs"
+  },
+  {
+    "name": "Suhlabs Web",
+    "description": "Source code for the Suhlabs website.",
+    "url": "https://github.com/JohnYoungSuh/labsweb"
+  }
+]

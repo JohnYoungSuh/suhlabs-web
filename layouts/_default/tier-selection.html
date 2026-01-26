@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select Your Experience | {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/tier-selection.css" />
+  </head>
+  <body class="tier-selection-page">
+    <main>
+      <div class="tier-container">
+        <header class="tier-header">
+          <h1>{{ .Title }}</h1>
+          <p class="tier-subtitle">{{ .Params.subtitle }}</p>
+          <p class="tier-description">
+            Select your experience level. Pricing will be disclosed upon
+            selection.
+          </p>
+        </header>
+
+        <div class="tier-pillars">
+          <!-- Bronze Tier -->
+          <div class="tier-pillar" data-tier="bronze">
+            <div class="tier-badge">Bronze</div>
+            <h3>Limited Edition Print</h3>
+            <ul class="tier-features">
+              <li>Open edition</li>
+              <li>Numbered & signed</li>
+              <li>16x24" or 24x36"</li>
+              <li>Certificate of authenticity</li>
+            </ul>
+            <button
+              class="tier-btn"
+              onclick="selectTier('bronze', '{{ .Params.collection }}')"
+            >
+              Select Bronze
+            </button>
+          </div>
+
+          <!-- Silver Tier -->
+          <div class="tier-pillar featured" data-tier="silver">
+            <div class="tier-badge">Silver</div>
+            <h3>Signed Edition Print</h3>
+            <ul class="tier-features">
+              <li>Limited to 25 prints</li>
+              <li>Hand-signed by artist</li>
+              <li>24x36" museum quality</li>
+              <li>Certificate + provenance</li>
+            </ul>
+            <button
+              class="tier-btn"
+              onclick="selectTier('silver', '{{ .Params.collection }}')"
+            >
+              Select Silver
+            </button>
+          </div>
+
+          <!-- Gold Tier -->
+          <div class="tier-pillar" data-tier="gold">
+            <div class="tier-badge">Gold</div>
+            <h3>1/1 NFT + Physical</h3>
+            <ul class="tier-features">
+              <li>Unique 1 of 1</li>
+              <li>Blockchain verified NFT</li>
+              <li>36x48" museum print</li>
+              <li>Personal artist consultation</li>
+            </ul>
+            <button
+              class="tier-btn"
+              onclick="selectTier('gold', '{{ .Params.collection }}')"
+            >
+              Select Gold
+            </button>
+          </div>
+        </div>
+
+        <p class="tier-disclaimer">
+          Pricing and availability will be shared via email within 24 hours of
+          your selection.
+        </p>
+      </div>
+    </main>
+
+    <script>
+      function selectTier(tier, collection) {
+        // Store selection
+        localStorage.setItem("selectedTier", tier);
+        localStorage.setItem("selectedCollection", collection);
+
+        // Redirect to viewing room
+        window.location.href = `/viewing/${collection}?tier=${tier}`;
+      }
+    </script>
+  </body>
+</html>

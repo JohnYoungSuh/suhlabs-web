@@ -1,0 +1,335 @@
+/* ============================================
+   LAPS Framework Styles - Quiz Landing Page
+   ============================================ */
+
+/* Hero Cinemagraph Section */
+.hero-cinemagraph-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.hero-cinemagraph {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Animated glow overlay for fire effect */
+.hero-cinemagraph::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(255, 107, 53, 0.4) 0%,
+    rgba(199, 62, 29, 0.2) 30%,
+    transparent 60%
+  );
+  animation: fire-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes fire-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+/* Dark overlay for readability */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.3) 0%,
+    rgba(10, 10, 10, 0.6) 50%,
+    rgba(10, 10, 10, 0.8) 100%
+  );
+  z-index: 3;
+}
+
+/* Quiz Content Container */
+.quiz-container {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Quiz Question */
+.quiz-question {
+  max-width: 800px;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.quiz-question h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.4;
+  color: #f5f5f5;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+/* Quiz Options Grid */
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  width: 100%;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Quiz Option Card */
+.quiz-option-card {
+  position: relative;
+  padding: 2rem 1.5rem;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.quiz-option-card:hover {
+  background: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 107, 53, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(255, 107, 53, 0.2);
+}
+
+quiz-option-card.other {
+  grid-column: 1 / -1;
+  max-width: 600px;
+  margin: 0 auto;
+  border-style: dashed;
+}
+
+.quiz-option-card h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #f5f5f5;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.quiz-option-card h3::before {
+  content: "◆";
+  color: rgba(255, 107, 53, 0.8);
+  font-size: 0.875em;
+}
+
+.quiz-option-card.other h3::before {
+  content: "◇";
+}
+
+.quiz-option-card p {
+  font-size: 0.95rem;
+  color: rgba(245, 245, 245, 0.7);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Artist Attribution */
+.quiz-attribution {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  animation: fadeIn 1s ease-out 1s both;
+}
+
+.quiz-attribution p {
+  font-size: 0.75rem;
+  color: rgba(245, 245, 245, 0.5);
+  margin: 0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Email Modal */
+.email-modal {
+  display: none; /* Hidden by default, shown via JS */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.email-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-modal-content {
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 3rem 2.5rem;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.email-modal h3 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: #f5f5f5;
+  margin: 0 0 0.5rem 0;
+}
+
+.email-modal .selection {
+  font-size: 0.95rem;
+  color: rgba(255, 107, 53, 0.9);
+  margin: 0 0 2rem 0;
+}
+
+.email-modal input[type="email"] {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #f5f5f5;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.email-modal input[type="email"]:focus {
+  outline: none;
+  border-color: rgba(255, 107, 53, 0.8);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.email-modal button {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: rgba(255, 107, 53, 0.9);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.email-modal button:hover {
+  background: rgba(255, 107, 53, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.email-modal .privacy-note {
+  font-size: 0.75rem;
+  color: rgba(245, 245, 245, 0.5);
+  margin: 1rem 0 0 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .quiz-options {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .quiz-question h2 {
+    font-size: 1.5rem;
+  }
+
+  .quiz-option-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .email-modal-content {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-cinemagraph::after {
+    animation: none;
+  }
+}
