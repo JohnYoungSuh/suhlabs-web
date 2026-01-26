@@ -2,19 +2,67 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "static/img"
-public_folder: "/img"
+# Local development - run `npx decap-server` for local testing
+local_backend: true
+
+media_folder: "static/img/uploads"
+public_folder: "/img/uploads"
 
 collections:
+  # Viewing Rooms - LAPS Sales Funnel
+  - name: "viewing-rooms"
+    label: "Viewing Rooms"
+    folder: "content/viewing"
+    create: false
+    slug: "{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description (SEO)", name: "description", widget: "text" }
+      - {
+          label: "Type",
+          name: "type",
+          widget: "hidden",
+          default: "viewing-room",
+        }
+      - label: "Collection"
+        name: "collection"
+        widget: "select"
+        options:
+          - { label: "The Conflict (Fire)", value: "conflict" }
+          - { label: "The Void (Blue)", value: "void" }
+          - { label: "The Path (Light)", value: "path" }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          hint: "Full page content in markdown",
+        }
+
+  # Pages
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "content/about.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Keywords", name: "keywords", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  # Work/Gallery (from original config)
   - name: "work"
     label: "Work"
     folder: "content/work"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Image", name: "image", widget: "image"}
-      - {label: "Categories", name: "categories", widget: "list"}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Categories", name: "categories", widget: "list" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Body", name: "body", widget: "markdown" }

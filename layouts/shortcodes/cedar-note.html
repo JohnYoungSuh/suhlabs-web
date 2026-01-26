@@ -1,0 +1,25 @@
+<div class="cedar-note">
+  <h4>Curator's Note</h4>
+
+  {{ with .Get "context" }}
+  <div class="cedar-section">
+    <h5>Context</h5>
+    <p>{{ . | markdownify }}</p>
+  </div>
+  {{ end }} {{ with .Get "evaluation" }}
+  <div class="cedar-section">
+    <h5>Evaluation</h5>
+    <p>{{ . | markdownify }}</p>
+  </div>
+  {{ end }} {{ with .Get "design" }}
+  <div class="cedar-section">
+    <h5>Design</h5>
+    <p>{{ . | markdownify }}</p>
+  </div>
+  {{ end }} {{ with .Get "result" }}
+  <div class="cedar-section">
+    <h5>Result</h5>
+    <p>{{ . | markdownify }}</p>
+  </div>
+  {{ end }}
+</div>

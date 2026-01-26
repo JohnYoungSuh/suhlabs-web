@@ -9,3 +9,6 @@ Thumbs.db
 
 # Netlify
 .netlify
+
+# Website Design Documentation (for review only)
+docs/website-design-2025/

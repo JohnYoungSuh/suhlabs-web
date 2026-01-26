@@ -1,0 +1,212 @@
+/* ============================================
+   Tier Selection Page Styles
+   ============================================ */
+
+.tier-selection-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.tier-container {
+  max-width: 1400px;
+  width: 100%;
+}
+
+/* Header */
+.tier-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.tier-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  color: #f5f5f5;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.02em;
+}
+
+.tier-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 107, 53, 0.9);
+  font-style: italic;
+  margin: 0 0 1rem 0;
+}
+
+.tier-description {
+  font-size: 1rem;
+  color: rgba(245, 245, 245, 0.7);
+  margin: 0;
+}
+
+/* 3 Pillars Grid */
+.tier-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Individual Pillar */
+.tier-pillar {
+  background: rgba(20, 20, 20, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.tier-pillar:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 107, 53, 0.6);
+  box-shadow: 0 12px 48px rgba(255, 107, 53, 0.2);
+}
+
+/* Featured (Silver) gets special styling */
+.tier-pillar.featured {
+  border-color: rgba(255, 215, 0, 0.4);
+  transform: scale(1.05);
+}
+
+.tier-pillar.featured:hover {
+  border-color: rgba(255, 215, 0, 0.8);
+  box-shadow: 0 16px 64px rgba(255, 215, 0, 0.3);
+}
+
+/* Tier Badge */
+.tier-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: rgba(255, 107, 53, 0.2);
+  border: 1px solid rgba(255, 107, 53, 0.4);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 107, 53, 1);
+  margin-bottom: 1.5rem;
+}
+
+.tier-pillar[data-tier="silver"] .tier-badge {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.4);
+  color: rgba(255, 215, 0, 1);
+}
+
+.tier-pillar[data-tier="gold"] .tier-badge {
+  background: rgba(255, 215, 0, 0.3);
+  border-color: rgba(255, 215, 0, 0.6);
+  color: rgba(255, 223, 0, 1);
+}
+
+/* Tier Title */
+.tier-pillar h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #f5f5f5;
+  margin: 0 0 2rem 0;
+}
+
+/* Features List */
+.tier-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  text-align: left;
+}
+
+.tier-features li {
+  padding: 0.75rem 0;
+  color: rgba(245, 245, 245, 0.8);
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.tier-features li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: rgba(255, 107, 53, 0.8);
+}
+
+.tier-features li:last-child {
+  border-bottom: none;
+}
+
+/* Select Button */
+.tier-btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 2px solid rgba(255, 107, 53, 0.6);
+  border-radius: 4px;
+  color: rgba(255, 107, 53, 1);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tier-btn:hover {
+  background: rgba(255, 107, 53, 0.1);
+  border-color: rgba(255, 107, 53, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+}
+
+.tier-pillar[data-tier="silver"] .tier-btn {
+  border-color: rgba(255, 215, 0, 0.6);
+  color: rgba(255, 215, 0, 1);
+}
+
+.tier-pillar[data-tier="silver"] .tier-btn:hover {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 1);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+}
+
+.tier-pillar[data-tier="gold"] .tier-btn {
+  border-color: rgba(255, 215, 0, 0.8);
+  color: rgba(255, 223, 0, 1);
+}
+
+.tier-pillar[data-tier="gold"] .tier-btn:hover {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 1);
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+}
+
+/* Disclaimer */
+.tier-disclaimer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgba(245, 245, 245, 0.5);
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Mobile */
+@media (max-width: 968px) {
+  .tier-pillars {
+    grid-template-columns: 1fr;
+  }
+  
+  .tier-pillar.featured {
+    transform: scale(1);
+  }
+  
+  .tier-pillar {
+    padding: 2rem 1.5rem;
+  }
+}

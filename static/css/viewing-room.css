@@ -1,0 +1,308 @@
+/* ============================================
+   Viewing Room Styles
+   ============================================ */
+
+.viewing-room {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #f5f5f5;
+}
+
+/* Video Welcome Section */
+.video-welcome {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 2rem 1rem;
+}
+
+.video-welcome video {
+  width: 100%;
+  border-radius: 4px;
+  background: #000;
+}
+
+.skip-video {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #f5f5f5;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.3s ease 5s forwards;
+}
+
+.skip-video:hover {
+  background: rgba(30, 30, 30, 1);
+  border-color: rgba(255, 107, 53, 0.6);
+}
+
+/* Collection Header */
+.collection-header {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.collection-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.02em;
+}
+
+.collection-header .tagline {
+  font-size: 1.25rem;
+  color: rgba(255, 107, 53, 0.9);
+  font-style: italic;
+  margin: 0 0 2rem 0;
+}
+
+.collection-header .description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(245, 245, 245, 0.8);
+}
+
+/* Artwork Section */
+.artwork-section {
+  max-width: 1400px;
+  margin: 0 auto 6rem;
+  padding: 0 2rem;
+}
+
+.artwork-section h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #f5f5f5;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* CEDAR Curator Notes */
+.cedar-note {
+  background: rgba(20, 20, 20, 0.6);
+  border-left: 3px solid rgba(255, 107, 53, 0.8);
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.cedar-note h4 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: rgba(255, 107, 53, 0.9);
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+}
+
+.cedar-section {
+  margin-bottom: 1.5rem;
+}
+
+.cedar-section:last-child {
+  margin-bottom: 0;
+}
+
+.cedar-section h5 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(245, 245, 245, 0.9);
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+.cedar-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(245, 245, 245, 0.8);
+  margin: 0;
+}
+
+/* Artwork Card */
+.artwork-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.artwork-card:last-child {
+  border-bottom: none;
+}
+
+.artwork-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.artwork-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.artwork-card:hover .artwork-image img {
+  transform: scale(1.02);
+}
+
+.artwork-info h3 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  margin: 0 0 0.5rem 0;
+}
+
+.artwork-tier {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 107, 53, 0.2);
+  border: 1px solid rgba(255, 107, 53, 0.4);
+  border-radius: 2px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.artwork-tier.gold {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.4);
+  color: rgba(255, 215, 0, 1);
+}
+
+.artwork-tier.bronze {
+  background: rgba(205, 127, 50, 0.2);
+  border-color: rgba(205, 127, 50, 0.4);
+  color: rgba(205, 127, 50, 1);
+}
+
+.artwork-price {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 1rem 0;
+}
+
+.artwork-specs {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.artwork-specs li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.95rem;
+  color: rgba(245, 245, 245, 0.7);
+}
+
+.artwork-specs li:last-child {
+  border-bottom: none;
+}
+
+.artwork-specs strong {
+  color: rgba(245, 245, 245, 0.9);
+  font-weight: 500;
+}
+
+/* Purchase CTAs */
+.purchase-cta {
+  margin-top: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.cta-button.gold {
+  background: transparent;
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  color: rgba(255, 215, 0, 1);
+}
+
+.cta-button.gold:hover {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+}
+
+.cta-button.bronze {
+  background: rgba(255, 107, 53, 0.9);
+  border: none;
+  color: #fff;
+}
+
+.cta-button.bronze:hover {
+  background: rgba(255, 107, 53, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.4);
+}
+
+/* Philosophy Section */
+.philosophy-section {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 3rem 2rem;
+  background: rgba(20, 20, 20, 0.4);
+  border-radius: 4px;
+}
+
+.philosophy-section h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0 0 1.5rem 0;
+}
+
+.philosophy-section blockquote {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-style: italic;
+  color: rgba(245, 245, 245, 0.8);
+  margin: 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid rgba(255, 107, 53, 0.6);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 968px) {
+  .artwork-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .cedar-note {
+    padding: 1.5rem;
+  }
+  
+  .collection-header h1 {
+    font-size: 2rem;
+  }
+}

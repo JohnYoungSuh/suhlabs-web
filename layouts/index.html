@@ -1,10 +1,120 @@
 {{ define "main" }}
-<section class="hero">
-    <div class="hero-content">
-        <h1>VISUAL SILENCE</h1>
-        <p>Minimalist Photography by Suhlabs</p>
-        <br>
-        <a href="/work" style="text-decoration: underline">Enter Gallery</a>
+<div class="hero-cinemagraph-container">
+  <!-- Hero Background Image with CSS Animation -->
+  <img
+    src="/img/hero-conflict.jpg"
+    alt="Walking in Hell"
+    class="hero-cinemagraph"
+  />
+
+  <!-- Dark Overlay for Readability -->
+  <div class="hero-overlay"></div>
+
+  <!-- Quiz Content -->
+  <div class="quiz-container">
+    <!-- Quiz Question -->
+    <div class="quiz-question">
+      <h2>
+        The city reflects what we hide.<br />What do you see in the shadows?
+      </h2>
     </div>
-</section>
+
+    <!-- Quiz Options -->
+    <div class="quiz-options">
+      <div
+        class="quiz-option-card"
+        data-collection="conflict"
+        tabindex="0"
+        role="button"
+        aria-label="Select The Conflict collection"
+      >
+        <h3>The Conflict</h3>
+        <p>The battles we fight alone</p>
+      </div>
+
+      <div
+        class="quiz-option-card"
+        data-collection="void"
+        tabindex="0"
+        role="button"
+        aria-label="Select The Void collection"
+      >
+        <h3>The Void</h3>
+        <p>The emptiness beneath routine</p>
+      </div>
+
+      <div
+        class="quiz-option-card"
+        data-collection="path"
+        tabindex="0"
+        role="button"
+        aria-label="Select The Path collection"
+      >
+        <h3>The Path</h3>
+        <p>The search for meaning</p>
+      </div>
+
+      <div
+        class="quiz-option-card other"
+        data-collection="other"
+        tabindex="0"
+        role="button"
+        aria-label="Select Other - describe your vision"
+      >
+        <h3>Other</h3>
+        <p>Describe your vision</p>
+      </div>
+    </div>
+
+    <!-- Artist Attribution -->
+    <div class="quiz-attribution">
+      <p>— The Relentless Cinder —</p>
+    </div>
+  </div>
+</div>
+
+<!-- Email Capture Modal -->
+<div
+  id="email-modal"
+  class="email-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+>
+  <div class="email-modal-content">
+    <h3 id="modal-title">Unlock Your Personal Collection</h3>
+    <p class="selection">You selected: <span id="selection-display"></span></p>
+
+    <form
+      id="email-form"
+      name="quiz-email-capture"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <!-- Netlify Forms -->
+      <input type="hidden" name="form-name" value="quiz-email-capture" />
+      <input type="hidden" name="quiz-selection" id="quiz-selection" />
+
+      <!-- Honeypot for spam -->
+      <input type="text" name="bot-field" style="display: none" />
+
+      <input
+        type="email"
+        id="email-input"
+        name="email"
+        placeholder="Email Address"
+        required
+        aria-label="Email address"
+      />
+
+      <button type="submit">Reveal Collection</button>
+
+      <p class="privacy-note">Privacy: We never share your email.</p>
+    </form>
+  </div>
+</div>
+
+<link rel="stylesheet" href="/css/quiz.css" />
+<script src="/js/quiz.js"></script>
 {{ end }}
